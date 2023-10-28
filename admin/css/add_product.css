@@ -1,0 +1,35 @@
+.body__product {
+    padding: 30px 60px;
+}
+
+.address-save {
+    width: 30%;
+}
+
+.wrap-input {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.wrap-input label{
+    margin-bottom: 5px;
+}
+
+.wrap-input input,
+.wrap-input select {
+    padding: 5px 10px;
+}
+
+.wrap-input .btn-add-product {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #7fad39;
+    cursor: pointer;
+}
+
+.wrap-input .btn-add-product:hover {
+    opacity: 0.9;
+}
