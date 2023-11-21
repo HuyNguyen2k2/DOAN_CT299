@@ -41,6 +41,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>
 </div>
 </div>
+
+<?php
+    if (isset($_POST['login'])) {
+        // Thực hiện xác thực tài khoản ở đây
+        $username = $_POST['Email'];
+        $password = $_POST['Password'];
+
+        // Kiểm tra tài khoản và mật khẩu có hợp lệ không
+        if ($username == 'admin@gmail.com' && $password == 'admin') {
+            // Đăng nhập thành công
+            // Chuyển hướng đến trang admin hoặc trang khác tùy ý
+            header("Location: http://localhost:3000/code_ct299_nhom01/admin/index.php?idPage=product");
+            exit();
+        } else {
+            echo "Thông tin đăng nhập không hợp lệ.";
+        }
+    }
+    ?>
+
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="js/scripts.js"></script>

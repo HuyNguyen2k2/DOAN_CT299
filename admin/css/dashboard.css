@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #app {
+    max-width: 800px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  #mostSoldProduct {
+    margin-top: 20px;
+  }
+  
+  #productList {
+    margin-top: 20px;
+  }
+  

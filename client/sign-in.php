@@ -80,13 +80,13 @@
             <div class="row sign__in">
                 <div class="col-lg">
                     <div class="sign__in__form">
-                        <form action="">
+                        <form   method="POST" action="sign-in.php">
                             <button><a href="sign-in.php" class="btn-dn">ĐĂNG NHẬP</a></button>
                             <button><a href="sign-up.php" class="btn-dk">ĐĂNG KÝ</a></button>
                             <br>
-                            <input type="email" name="mail" id="mail" placeholder="Nhập email" required>
+                            <input type="email" name="email" id="email" placeholder="Nhập email" required>
                             <br>
-                            <input type="password" name="pass" id="pass" placeholder="Mật khẩu" required>
+                            <input type="password" name="password" id="password" placeholder="Mật khẩu" required>
                             <br>
                             <input type="submit" name="submit" id="submit" value="ĐĂNG NHẬP"><br>
                             <button type="button" class=" forget-pass" data-toggle="modal" data-target="#change-pass">Quên Mật Khẩu</button>
@@ -100,7 +100,7 @@
         </div>
     </section>
     <!-- Sign In Section End -->
-
+   
     <!-- Dialog Forget Password -->
     <!-- Dialog Email -->
     <div class="modal fade" id="change-pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -159,8 +159,60 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-
+ 
+ 
 </body>
 
 </html>
+
+<?php
+// Thông tin kết nối CSDL
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "htqlcaycanh";
+session_start();
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
+}
+
+
+
+// Xử lý đăng nhập khi nhận được dữ liệu từ form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    
+    // Truy vấn kiểm tra thông tin đăng nhập
+    $sql = "SELECT * FROM khach_hang WHERE KH_EMAIL = '$email' AND KH_MATKHAU = '$password'";
+
+    $result = $conn->query($sql)->fetch_all();
+
+    if (count($result) > 0) {
+        // Đăng nhập thành công
+        $_SESSION["tree_acc"]=json_encode($result);
+        
+        echo "
+            <script>
+                location.replace('./index.php');
+            </script>
+        ";
+    } else {     
+        echo "
+            <script>                       
+                swal('Đăng nhập thất bại', 'Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại ', 'error');
+                document.addEventListener('keydown', (e) => {
+                    if(e.which === 116){
+                        
+                        location.replace('./sign-up.php');
+                    }
+                });
+            </script>
+        ";
+    }      
+} 
+
+// Đóng kết nối CSDL
+$conn->close();
+?>        

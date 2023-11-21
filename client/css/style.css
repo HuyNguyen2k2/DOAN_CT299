@@ -512,8 +512,8 @@ ol {
 }
 
 .header__cart {
-  text-align: right;
-  padding: 24px 0;
+  text-align: left;
+  padding: 24px 30px;
 }
 
 .header__cart ul {
@@ -5107,4 +5107,47 @@ i{
 .success-img{
   width: 300px;
   height: 300px;
+}
+.input-field {
+  border: 1px solid #7fad39;
+}
+
+.error-field {
+  border: 1px solid #f00 !important;
+}
+
+/*  */
+.container__menu-item {
+  position: relative;
+}
+
+.container__menu-item:hover .container__menu-hover-content{
+  display: block;
+}
+
+.container__menu-hover-content {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* Màu đậm hơn */
+  width: 120px; /* Chiều rộng của menu hover */
+  text-align: left;
+  margin-top: -2px;
+  padding-top: 20px;
+  border: 1px solid #000;
+}
+
+.container__menu-hover-content::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  bottom: 100%;
+  left: 0;
+}
+
+.container__menu-hover-content a {
+  display: block;
+  color: #6f6f6f; /* Màu chữ trắng */
+  text-decoration: none;
+  margin-bottom: 5px;
 }

@@ -21,14 +21,19 @@
                             <i class="fa fa-bars"></i>
                             <span>Danh Mục</span>
                         </div>
-                        <ul> 
-                            <li><a href="#">Cây để bàn</a></li>
-                            <li><a href="#">Cây dây leo</a></li>
-                            <li><a href="#">Cây tết</a></li>
-                            <li><a href="#">Cây thủy sinh</a></li>
-                            <li><a href="#">Cây trong nhà</a></li>
-                            <li><a href="#">Cây ngoài vườn</a></li>
+                        <ul>
+                        <?php
+                            $sql = "SELECT * FROM loai";
+                            $result_all = $conn->query($sql)->fetch_all();
+
+                            foreach($result_all as $item){
+                                echo '
+                                    <li><a href="#">'.$item[1].'</a></li>
+                                ';
+                            }
+                        ?>
                         </ul>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -64,7 +69,7 @@
         </div>
     </section>
     <!-- Hero Section End -->
-
+    
     <!-- Begin banner top -->
     <section class="container ">
         <div class=" banner_top row set-bg" data-setbg="img/banner/bg1.png">
@@ -99,343 +104,65 @@
       <!-- Breadcrumb Section End -->
   
     <!-- End of banner top-->
-     <!-- Categories Section Begin -->
-     <section class="sale-intro container">
+    <!-- Categories Section Begin -->
+    <section class="sale-intro container">
             <div class="section-title">
                 <h4 class="tit-box">
-                    <a href="product-sale.html">Giảm giá</a>
+                    <a href="product-sale.html">Nổi bật</a>
                 </h4>
             </div>
+            
             <div class="row sale">
                 <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/suong-rong-da-mini.jpg">
-                                <div class="product__discount__percent">-10%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                   
-                                    
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây để bàn</span>
-                                <h5><a href="#">Sương rồng đá mini</a></h5>
-                                <div class="product__item__price">45.000 VNĐ <span>50.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/cay-de-vuong-van-phong.jpg">
-                                <div class="product__discount__percent">-20%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây trong nhà</span>
-                                <h5><a href="#">Cây đế vương</a></h5>
-                                <div class="product__item__price">360.000 VNĐ <span>450.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/cay-dua-canh-nen.jpg">
-                                <div class="product__discount__percent">-15%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây để bàn</span>
-                                <h5><a href="#">Cây dứa cảnh nến</a></h5>
-                                <div class="product__item__price">110.000 VNĐ <span>130.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/cay-giot-suong.jpg">
-                                <div class="product__discount__percent">-25%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây dây leo</span>
-                                <h5><a href="#">Cây sen đá giọt sương</a></h5>
-                                <div class="product__item__price">112.000 VNĐ<span>150.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/cay-lan-y-thuy-sinh-dep.jpg">
-                                <div class="product__discount__percent">-10%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây thủy sinh</span>
-                                <h5><a href="#">Cây lan ý thủy sinh</a></h5>
-                                <div class="product__item__price">135.000 VNĐ<span>150.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="product__discount__item">
-                            <div class="product__discount__item__pic set-bg"
-                                data-setbg="img/sale/cay-ngu-gia-bi.jpg">
-                                <div class="product__discount__percent">-5%</div>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__discount__item__text">
-                                <span>Cây trong nhà</span>
-                                <h5><a href="#">Cây ngũ gia bì</a></h5>
-                                <div class="product__item__price">90.000 VNĐ<span>95.000 VNĐ</span></div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <style>
+                        .product__discount__item__pic{
+                            position: relative;
+                        }
+
+                        .img_product{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    </style>
+                    <?php
+
+                        $sql = "SELECT * FROM san_pham sp JOIN loai l ON sp.L_MA = l.L_MA"; // Giả sử có trường noi_bat để đánh dấu sản phẩm nổi bật
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<div class="col-lg-3">';
+                                echo '<div class="product__discount__item">';
+                                echo '<div class="product__discount__item__pic set-bg" data-setbg="' . _WEB_ROOT.'/admin/public/imgs/img_product/'.$row['SP_HinhAnh'] . '">';
+                                echo '<ul class="product__item__pic__hover">';
+                                echo '<li><a href="./handler/add_cart.php?idProduct='.$row['SP_MA'].'" onclick=""><i class="fa fa-shopping-cart"></i></a></li>';
+                                echo '</ul>';
+                                echo '</div>';
+                                echo '<div class="product__discount__item__text">';
+                                echo '<span>' . $row['L_TEN'] . '</span>';
+                                echo '<h5><a href="#">' . $row['SP_TEN'] . '</a></h5>';
+                                echo '<div class="product__item__price">' . number_format($row['SP_Gia']) . ' VNĐ</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo "Không có sản phẩm nổi bật";
+                        }
+
+                        $conn->close();
+                    ?>
                 </div>
             </div>
         
     </section>
     <!-- Categories Section End -->
-    <!-- Featured Section Begin -->
-    <section class="featured spad container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h4 class="tit-box">
-                        <a href="shop-grid.html">Nổi bật</a>
-                    </h4>
-                </div>
-                <div class="featured__controls max-width">
-                    <ul>
-                        <li class="active" data-filter="*">Tất cả</li>
-                        <li data-filter=".cay-de-ban">Cây để bàn</li>
-                        <li data-filter=".cay-day-leo">Cây dây leo</li>
-                        <li data-filter=".cay-tet">Cây tết</li>
-                        <li data-filter=".cay-thuy-sinh">Cây thủy sinh</li>
-                        <li data-filter=".cay-trong-nha">Cây trong nhà</li>
-                        <li data-filter=".cay-ngoai-vuon">Cây ngoài vườn</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="featured__filter" id="smooth-scrollbar" data-scrollbar>
-            <div class="row height-prevent ">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-mat-cat-300.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây mật cật</a></h6>
-                            <h5>300.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-trong-nha ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-bach-ma-hoang-tu-320.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây bạch mã hoàng tử</a></h6>
-                            <h5>350.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-trong-nha ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-hanh-phuc-150.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây hạnh phúc</a></h6>
-                            <h5>155.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-de-ban cay-trong-nha">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-huong-thao-de-ban-125.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây hương thảo</a></h6>
-                            <h5>250.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-de-ban cay-trong-nha">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-trung-chim-lon.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây xương rồng trứng chim lớn</a></h6>
-                            <h5>29.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-day-leo cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-binh-an.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây bình an</a></h6>
-                            <h5>149.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-day-leo cay-de-ban cay-trong-nha">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-thuong-xuan-159.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây thường xuân</a></h6>
-                            <h5>159.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-thuy-sinh cay-trong-nha">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/co-dong-tien.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cỏ đồng tiền</a></h6>
-                            <h5>99.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-thuy-sinh cay-trong-nha cay-de-ban cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cay-phu-quy.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây phú quý</a></h6>
-                            <h5>49.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-tet cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/cuc-mai.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây cúc mai</a></h6>
-                            <h5>563.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-tet cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/mai-do.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Cây mai đỏ</a></h6>
-                            <h5>299.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix cay-de-ban cay-ngoai-vuon">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/xuong-rong-tai-tho.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-money"></i></a></li>
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Xương rồng tai thỏ</a></h6>
-                            <h5>36.000 VNĐ</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </section>
-    <!-- Featured Section End -->
 
       <!-- Banner Begin -->
-    <div class="banner">
+    <div class="banner" style="padding-top: 100px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">

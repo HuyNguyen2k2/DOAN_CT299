@@ -1,77 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+    <style>
+        h2{
+            padding-bottom: 20px;
+        }
 
-<style>
-    h2 {
-        padding-bottom: 30px;
-    }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    table, th, td {
-        border:1px solid black;
-        text-align: center;
-    }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
 
-    td{
-        height: 50px;
-    }
+        th {
+            background-color: #7fad39;
+            color: white;
+        }
 
-    .btn-category{
-        border: 1px solid #fff;
-        padding: 2px 10px;
-        color: #fff;
-        background-color: #7fad39;
-        border-radius: 5px;
-        margin: 0 5px;
-    }
+        /* tr:nth-child(even) {
+            background-color: #f2f2f2;
+        } */
 
-    .col-idSp{
-        width: 10%;
-    }
-    .col-NameSp{
-        width: 20%;
-    }
-    .col-NameClient{
-        width: 20%;
-    }
-    .col-fee{
-        width: 11%;
-    }
-    .col-date{
-        width: 10%;
-    }
-    .col-price{
-        width: 10%;
-    }
-    .col-edit{
-        
-    }
-
-</style>
-
+        .pad{
+            padding: 5px 0;
+        }
+    </style>
+</head>
 <body>
 
-    <h2>DANH SÁCH ĐƠN ĐẶT HÀNG</h2>
+<h2>Quản Lý Đơn Đặt Hàng</h2>
 
-    <table>
+<div class="filter-section pad">
+    <label for="filterDate">Lọc theo ngày:</label>
+    <input type="date" id="filterDate" name="filterDate">
+</div>
+
+<div class="filter-section pad">
+    <label for="filterStatus">Lọc theo trạng thái:</label>
+    <select name="filterStatus" id="filterStatus">
+        <option value="all">Tất cả</option>
+        <option value="Chờ xử lý">Chờ xử lý</option>
+        <option value="Đang giao hàng">Đang giao hàng</option>
+        <option value="Hoàn thành">Hoàn thành</option>
+        <option value="Hủy">Hủy</option>
+    </select>
+</div>
+
+<table>
+    <thead>
         <tr>
-            <th>Mã đơn</th>
-            <th>Tên sản phẩm</th>
-            <th>Tên người đặt</th>
-            <th>Phí giao hàng</th>
-            <th>Ngày đặt</th>
-            <th>Tổng tiền</th>
-            <th>Tùy chọn</th>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt hàng</th>
+            <th>Tổng giá trị</th>
+            <th>Trạng thái</th>
+            <th>Tùy chọn</th> <!-- Cột Tùy chọn -->
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>DH12345</td>
+            <td>2023-11-09</td>
+            <td>$150.00</td>
+            <td>
+                <select name="status">
+                    <option value="Chờ xử lý">Chờ xử lý</option>
+                    <option value="Đang giao hàng">Đang giao hàng</option>
+                    <option value="Hoàn thành">Hoàn thành</option>
+                    <option value="Hủy">Hủy</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="updateStatus('DH12345')">Cập nhật</button>
+                <a href="detail-order.php?orderId=DH12345">Xem chi tiết</a>
+            </td>
         </tr>
         <tr>
-            <td class="col-idSp"><input type="checkbox" name="checkbox" id=""> DDH001</td>
-            <td class="col-NameSp">Mai tứ quý</td>
-            <td class="col-NameClient">Hoàng Huy</td>
-            <td class="col-fee">15.000</td>
-            <td class="col-date">18/10/2023</td>
-            <td class="col-price">5.000.000</td>
-            <td class="col-edit"><a class="btn-category" href="#">Nhận đơn</a> <a class="btn-category" href="#">Hủy đơn</a></td>
+            <td>DH12345</td>
+            <td>2023-11-09</td>
+            <td>$150.00</td>
+            <td>
+                <select name="status">
+                    <option value="Chờ xử lý">Chờ xử lý</option>
+                    <option value="Đang giao hàng">Đang giao hàng</option>
+                    <option value="Hoàn thành">Hoàn thành</option>
+                    <option value="Hủy">Hủy</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="updateStatus('DH12345')">Cập nhật</button>
+                <a href="detail-order.php?orderId=DH12345">Xem chi tiết</a>
+            </td>
         </tr>
-    </table>
-    
+        <!-- Các dòng khác -->
+    </tbody>
+</table>
+
+<script>
+    const filterDateInput = document.getElementById('filterDate');
+    const filterStatusSelect = document.getElementById('filterStatus');
+    const tableBody = document.querySelector('table tbody');
+
+    // Thêm sự kiện lọc khi ngày hoặc trạng thái thay đổi
+    filterDateInput.addEventListener('change', applyFilters);
+    filterStatusSelect.addEventListener('change', applyFilters);
+
+    // Hàm áp dụng bộ lọc
+    function applyFilters() {
+        const selectedDate = filterDateInput.value;
+        const selectedStatus = filterStatusSelect.value;
+        
+        // Đoạn code này bạn cần viết để lọc và hiển thị đơn đặt hàng dựa trên ngày và trạng thái đã chọn
+        // Ví dụ: bạn có thể sử dụng AJAX để gửi yêu cầu lên máy chủ và nhận kết quả trả về để cập nhật bảng
+        // Sau khi lọc dữ liệu, bạn có thể cập nhật nội dung bảng trong phần tbody
+
+        // Ví dụ cách bạn có thể cập nhật dữ liệu trong bảng (bạn cần thay thế dữ liệu này bằng dữ liệu thực tế)
+        tableBody.innerHTML = `
+            <tr>
+                <td>DH12345</td>
+                <td>2023-11-09</td>
+                <td>$150.00</td>
+                <td>Chờ xử lý</td>
+                <td>
+                    <button onclick="updateStatus('DH12345')">Cập nhật</button>
+                    <a href="detail-order.php?orderId=DH12345">Xem chi tiết</a>
+                </td>
+            </tr>
+            <!-- Các dòng khác -->
+        `;
+    }
+
+    // Hàm cập nhật trạng thái
+    function updateStatus(orderId) {
+        // Đoạn code này bạn cần viết để cập nhật trạng thái đơn đặt hàng (thông qua AJAX hoặc các phương pháp khác)
+    }
+</script>
+
 </body>
 </html>

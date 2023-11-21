@@ -50,7 +50,6 @@ if(!empty($nameProduct) || !empty($priceProduct) ||  $imgOk){
 
 
 
-
 function add($sql) {
     global $conn;
     $result = $conn->query($sql);

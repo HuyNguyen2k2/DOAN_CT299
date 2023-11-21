@@ -2,6 +2,7 @@
 <html lang="vi-VN">
 
 <?php
+
     require_once 'blocks/head.php';
     require_once 'blocks/header.php'
 ?>
@@ -25,11 +26,6 @@
                             <li><a href="#">Cây thủy sinh</a></li>
                             <li><a href="#">Cây trong nhà</a></li>
                             <li><a href="#">Cây ngoài vườn</a></li>
-                            <!-- <li><a href="#">Hoa Chậu</a></li>
-                            <li><a href="#">Đất Trồng Cây</a></li>
-                            <li><a href="#">Dụng Cụ Làm Vườn</a></li>
-                            <li><a href="#">Chậu Cảnh</a></li>
-                            <li><a href="#">Tiểu Cảnh</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -79,85 +75,19 @@
             <div class="row sign__in sign__up">
                 <div class="col-lg">
                     <div class="sign__in__form sign__up__form">
-                        <form action="">
+                    <form onsubmit="return validateForm();" method="post" action="sign-up.php">
                             <button><a href="sign-in.php" class="btn-dn">ĐĂNG NHẬP</a></button>
                             <button><a href="sign-up.php" class="btn-dk">ĐĂNG KÍ</a></button><br>
-                            <input type="text" name="fname" id="fname" placeholder="Họ Tên (*)" required><br>
-                            <input type="date" name="birth" id="birth" placeholder="Ngày Sinh"><br>
-                            <input type="number" name="phone" id="phone" placeholder="Điện Thoại (*)" required><br>
-                            <input type="email" name="mail" id="mail" placeholder="Email (*)" required><br>
-                            <select name="city" id="city">
-                                <option value="">Tỉnh/Thành phố (*)</option>
-                                <option value="254">An Giang</option>
-                                <option value="255">Bà Rịa - Vũng Tàu</option>
-                                <option value="256">Bắc Giang</option>
-                                <option value="257">Bắc Kạn</option>
-                                <option value="258">Bạc Liêu</option>
-                                <option value="259">Bắc Ninh</option>
-                                <option value="260">Bến Tre</option>
-                                <option value="261">Bình Định</option>
-                                <option value="262">Bình Dương</option>
-                                <option value="263">Bình Phước</option>
-                                <option value="264">Bình Thuận</option>
-                                <option value="265">Cần Thơ</option>
-                                <option value="266">Cà Mau</option>
-                                <option value="267">Cao Bằng</option>
-                                <option value="268">Đà Nẵng</option>
-                                <option value="269">Đắk Lắk</option>
-                                <option value="270">Đắk Nông</option>
-                                <option value="271">Điện Biên</option>
-                                <option value="272">Đồng Nai</option>
-                                <option value="273">Đồng Tháp</option>
-                                <option value="274">Gia Lai</option>
-                                <option value="275">Hải Phòng</option>
-                                <option value="276">Hà Nội</option>
-                                <option value="277">Hà Giang</option>
-                                <option value="278">Hà Nam</option>
-                                <option value="279">Hà Tĩnh</option>
-                                <option value="280">Hải Dương</option>
-                                <option value="281">Hậu Giang</option>
-                                <option value="282">Hòa Bình</option>
-                                <option value="283">Hưng Yên</option>
-                                <option value="284">Khánh Hòa</option>
-                                <option value="285">Kiên Giang</option>
-                                <option value="286">Kon Tum</option>
-                                <option value="287">Lai Châu</option>
-                                <option value="288">Lâm Đồng</option>
-                                <option value="289">Lạng Sơn</option>
-                                <option value="290">Lào Cai</option>
-                                <option value="291">Long An</option>
-                                <option value="292">Nam Định</option>
-                                <option value="293">Nghệ An</option>
-                                <option value="294">Ninh Bình</option>
-                                <option value="295">Ninh Thuận</option>
-                                <option value="296">Phú Thọ</option>
-                                <option value="297">Quảng Bình</option>
-                                <option value="298">Quảng Nam</option>
-                                <option value="299">Quảng Ngãi</option>
-                                <option value="300">Quảng Ninh</option>
-                                <option value="301">Quảng Trị</option>
-                                <option value="302">Sóc Trăng</option>
-                                <option value="303">Sơn La</option>
-                                <option value="304">Thành phố Hồ Chí Minh</option>
-                                <option value="305">Tây Ninh</option>
-                                <option value="306">Thái Bình</option>
-                                <option value="307">Thái Nguyên</option>
-                                <option value="308">Thanh Hóa</option>
-                                <option value="309">Thừa Thiên Huế</option>
-                                <option value="310">Tiền Giang</option>
-                                <option value="312">Trà Vinh</option>
-                                <option value="313">Tuyên Quang</option>
-                                <option value="314">Vĩnh Long</option>
-                                <option value="315">Vĩnh Phúc</option>
-                                <option value="316">Yên Bái</option>
-                                <option value="317">Phú Yên</option>
-                            </select><br>
-                            <input type="text" name="district" id="district" placeholder="Quận/ Huyện">
-                            <input type="text" name="warm" id="warm" placeholder="Xã/ Phường/ Thị trấn">
-                            <input type="text" name="address" id="address" placeholder="Địa Chỉ Chi Tiết">
-                            <input type="password" name="pass" id="pass" placeholder="Mật Khẩu" required><br>
-                            <input type="password" name="pass" id="pass" placeholder="Nhập Lại Mật Khẩu" required><br>
-                            <input type="submit" name="submit" id="submit" value="ĐĂNG KÝ"><br>
+                            <input type="text" name="fname" id="input-fname"  placeholder="Họ Tên (*)" required><br>
+                            <input type="date" name="birth" id="input-birth" placeholder="Ngày Sinh"><br>
+                            <input type="number" name="phone" id="input-phone" class="input-field" placeholder="Điện Thoại (*)" required><br>
+                            <!-- Thêm phần tử mới để hiển thị thông báo lỗi -->
+                            <span id="phoneError" style=" color: red;float: left;text-align: right;margin-left: 20px;margin-top: 5px;margin-bottom: -15px;"></span>
+                            <input type="email" name="mail" id="input-mail" placeholder="Email (*)" required><br>                    
+                            <input type="password" name="pass1" id="input-pass1" placeholder="Mật Khẩu" required><br>
+                            <input type="password" name="pass2" id="input-pass2" class="input-field" placeholder="Nhập Lại Mật Khẩu" required><br>
+                            <span id="passError" style=" color: red;float: left;text-align: right;margin-left: 20px;margin-top: 5px;margin-bottom: -15px;"></span>
+                            <input type="submit" name="submit" id="input-submit" value="ĐĂNG KÝ"><br>
                         </form>
                     </div>
                 </div>
@@ -179,8 +109,115 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+   
+    
+   
 
+    <script>
+function validateForm() {
+    var phoneNumber = document.getElementById("input-phone").value;
+    var password1 = document.getElementById("input-pass1").value;
+    var password2 = document.getElementById("input-pass2").value;
+    var email = document.getElementById("input-mail").value;
+    var phoneError = document.getElementById("phoneError");
+    var passError = document.getElementById("passError");
 
+    // Kiểm tra số điện thoại có đúng định dạng không
+    if (phoneNumber.length !== 10) {
+        phoneError.innerHTML = "Số điện thoại không hợp lệ";
+        document.getElementById("input-phone").classList.add("error-field");
+        return false;
+    } else {
+        phoneError.innerHTML = "";
+        document.getElementById("input-phone").classList.remove("error-field");
+    }
+
+    // Kiểm tra mật khẩu nhập lại
+    if (password1 !== password2) {
+        passError.innerHTML = "Mật khẩu không khớp";
+        document.getElementById("input-pass2").classList.add("error-field");
+        return false;
+    } else {
+        passError.innerHTML = "";
+        document.getElementById("input-pass2").classList.remove("error-field");
+    }
+
+    // Nếu tất cả các trường hợp lệ, cho phép gửi yêu cầu đến máy chủ
+    return true;
+}
+</script>
+<?php
+// Kết nối đến cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "htqlcaycanh";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
+}
+
+// Kiểm tra khi nhấn nút submit
+// Kiểm tra khi nhấn nút submit
+if (isset($_POST["submit"])) {
+    $fname = $_POST["fname"];
+    $birth = $_POST["birth"];
+    $phone = $_POST["phone"];
+    $mail = $_POST["mail"];
+    $pass1 = $_POST["pass1"];
+
+    
+
+    // Kiểm tra email đã tồn tại trong cơ sở dữ liệu hay chưa
+    $checkEmailQuery = "SELECT * FROM khach_hang WHERE kh_email = '$mail'";
+    $checkEmailResult = $conn->query($checkEmailQuery);
+
+    if ($checkEmailResult->num_rows > 0) {
+        // Email đã tồn tại
+        echo "
+                        <script>
+                            swal('Đăng kí thất bại', 'Tên tài khoản đã tồn tại', 'error');
+                            document.addEventListener('keydown', (e) => {
+                                if(e.which === 116){
+                                    location.replace('./sign-up.php');
+                                }
+                            });
+                        </script>
+                    ";
+    } else {
+        // Kiểm tra định dạng email
+        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            echo "<script>document.getElementById('email-error').innerHTML = 'Email không hợp lệ';</script>";
+        } else {
+            // Insert dữ liệu vào bảng trong cơ sở dữ liệu
+            
+            $sql = "INSERT INTO khach_hang (kh_ten, kh_ngaysinh, kh_email, kh_matkhau, kh_sdt) VALUES ('$fname', '$birth','$mail', '$pass1', '$phone')";
+            $sql_cart = "INSERT INTO gio_hang (gh_ma, kh_ma) VALUES (null, ) ";
+
+            if ($conn->query($sql) === TRUE) {
+                // Chuyển trang đến sign=in.php
+                echo "
+                            <script>
+                                swal('Đăng kí thành công', 'Tài khoản của bạn đã được tạo, quay lại để đăng nhập nhé', 'success');
+                                document.addEventListener('click', () => {
+                                        location.replace('./sign-in.php');
+                                });
+                                document.addEventListener('keydown', (e) => {
+                                    if(e.which === 116){
+                                        location.replace('./sign-in.php');
+                                    }
+                                });
+                            </script>
+                        ";
+            } else {
+                echo "Lỗi: " . $sql . "<br>" . $conn->error;
+            }
+        }
+    }
+}
+$conn->close();
+?>
 </body>
 
 </html>

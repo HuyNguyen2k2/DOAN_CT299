@@ -150,13 +150,33 @@
                         <input type="text" placeholder="Email:">
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea placeholder="Ý kiến của bạn là:"></textarea>
-                        <button type="submit" class="site-btn">Gửi</button>
-                    </div>
+    <textarea placeholder="Ý kiến của bạn là:"></textarea>
+    <button type="submit" class="site-btn" data-toggle="modal" data-target="#notify-submit">Gửi</button>
                 </div>
             </form>
         </div>
     </div>
+    <div class="modal fade" id="notify-submit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog forget-dialog" role="document">
+        <div class="modal-content forget-content">
+        <div class="modal-header forget-header">
+    <h5 class="modal-title forget-title text-center" id="exampleModalLongTitle">Cập nhật thông tin</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="x">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+            <div class="modal-body forget-body">
+                <div>
+                    <p>Thông tin đã được cập nhật, cảm ơn bạn vì đã mua hàng</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary forget-send">ĐÓNG</button>
+            </div>
+        </div>
+        </div>
+    </div>
+   
     <!-- Contact Form End -->
 
     <?php
@@ -174,6 +194,8 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+
+    </script>
 
 
 </body>

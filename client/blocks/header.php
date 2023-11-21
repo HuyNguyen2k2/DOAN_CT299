@@ -1,10 +1,11 @@
-
-
 <!-- Page Preloder -->
 <div id="preloder">
         <div class="loader"></div>
     </div>
-
+    <?php
+     session_start();
+    
+    ?>
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
@@ -70,7 +71,32 @@
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="sign-in.php"><i class="fa fa-user"></i> Đăng Nhập</a>
+                                <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "htqlcaycanh";
+
+                                    $conn = new mysqli($servername, $username, $password, $dbname);
+                                    if ($conn->connect_error) {
+                                    die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
+                                    }
+                                    if (isset($_SESSION["tree_acc"])) {
+                                        $value_tree = json_decode($_SESSION["tree_acc"]);
+                                        $acc_name = $value_tree[0][1];
+                                        
+                                        // In ra menu
+                                        echo '<div class="menu">';
+                                        echo '<div class="menu-item">';
+                                        echo '<a href="user.php" class="menu-item-text"><i class="fa fa-user"></i> Chào, ' . $acc_name . '</a>';
+                                        echo '</div>';
+                                        echo '</div>';
+                                        
+                                    } else {
+                                        echo '<a href="sign-in.php"><i class="fa fa-user"></i> Đăng nhập</a>';
+                                    }
+                                    
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -101,7 +127,7 @@
                             <!-- <li><a href="user.php"><i class="fa fa-heart"></i> <span>1</span></a></li> -->
                             <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">Tổng:<span>150.000 VNĐ</span></div>
+                        <!-- <div class="header__cart__price">Tổng:<span>150.000 VNĐ</span></div> -->
                     </div>
                 </div>
             </div>
